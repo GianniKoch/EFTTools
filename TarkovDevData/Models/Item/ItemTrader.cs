@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TarkovDevData.Models.Items;
+namespace TarkovDevData.Models.Item;
 
-public class ItemTask
+public class ItemTrader
 {
     [JsonPropertyName("id")] 
     public string Id { get; set; }

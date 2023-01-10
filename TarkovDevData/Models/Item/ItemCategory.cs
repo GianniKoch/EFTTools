@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TarkovDevData.Models.Items;
+namespace TarkovDevData.Models.Item;
 
 public class ItemCategory
 {

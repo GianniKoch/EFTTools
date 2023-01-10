@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
-using TarkovDevData.Models.Enums;
 
-namespace TarkovDevData.Models.Items;
+namespace TarkovDevData.Models.Item;
 
 public class ItemForWrapper
 {
@@ -15,7 +14,7 @@ public class ItemForWrapper
     public long Price { get; set; }
     
     [JsonPropertyName("currency")]
-    public Currency Currency { get; set; }
+    public string Currency { get; set; }
     
     [JsonPropertyName("priceRUB")]
     public long PriceRub { get; set; }
