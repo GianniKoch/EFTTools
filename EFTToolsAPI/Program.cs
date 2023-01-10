@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTarkovDevData();
+builder.Services.AddOutputCache(settings => { settings.DefaultExpirationTimeSpan = TimeSpan.FromMinutes(5); });
 
 var app = builder.Build();
 
@@ -20,9 +21,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(settings =>
+{
+    settings.AllowAnyMethod();
+    settings.AllowAnyHeader();
+    settings.AllowAnyOrigin();
+});
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseOutputCache();
 
 app.MapControllers();
 
