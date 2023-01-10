@@ -1,9 +1,11 @@
 ﻿namespace TarkovDevData;
 
-public class Constants {
-  public const string TarkovDevUrl = "https://api.tarkov.dev/";
-  private const string GraphQlQuery = "graphql?query=";
-  public const string GetItemsQuery = GraphQlQuery + @"
+public class Constants
+{
+    public const string TarkovDevUrl = "https://api.tarkov.dev/";
+    private const string GraphQlQuery = "graphql?query=";
+
+    public const string GetItemsQuery = GraphQlQuery + @"
 {
   items {
     id
@@ -90,7 +92,7 @@ public class Constants {
   }
 }";
 
-  public const string GetAmmoQuery = GraphQlQuery + @"{
+    public const string GetAmmoQuery = GraphQlQuery + @"{
   ammo {
     item {
     id
