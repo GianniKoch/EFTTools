@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 using TarkovDevData.Services.Interfaces;
 
 namespace EFTToolsAPI.Controllers;
@@ -18,6 +19,7 @@ public class EftToolsApiController : ControllerBase
     }
 
     [HttpGet("Items")]
+    [OutputCache]
     public async Task<IActionResult> GetItems(CancellationToken ct)
     {
         var items = await _tarkovDevDataService.GetAllItems(ct);
@@ -26,10 +28,11 @@ public class EftToolsApiController : ControllerBase
     }
 
     [HttpGet("Ammo")]
+    [OutputCache]
     public async Task<IActionResult> GetAmmo(CancellationToken ct)
     {
         var items = await _tarkovDevDataService.GetAmmo(ct);
-        _logger.LogInformation("Retrieving all items.");
+        _logger.LogInformation("Retrieving all ammo.");
         return Ok(items);
     }
 }
