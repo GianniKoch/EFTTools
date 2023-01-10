@@ -47,7 +47,7 @@ public class Constants {
             name
             normalizedName
           }
-        } 
+        }
       }
       price
       currency
@@ -76,7 +76,7 @@ public class Constants {
             name
             normalizedName
           }
-        } 
+        }
       }
       price
       currency
@@ -134,7 +134,7 @@ public class Constants {
             name
             normalizedName
           }
-        } 
+        }
       }
       price
       currency
@@ -163,7 +163,7 @@ public class Constants {
             name
             normalizedName
           }
-        } 
+        }
       }
       price
       currency
