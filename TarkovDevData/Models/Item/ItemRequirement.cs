@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TarkovDevData.Models.Items;
+namespace TarkovDevData.Models.Item;
 
 public class ItemRequirement
 {
@@ -8,7 +8,7 @@ public class ItemRequirement
     public string Type { get; set; }
     
     [JsonPropertyName("value")] 
-    public string? Value { get; set; }
+    public double Value { get; set; }
     
     [JsonPropertyName("stringValue")] 
     public string? StringValue { get; set; }

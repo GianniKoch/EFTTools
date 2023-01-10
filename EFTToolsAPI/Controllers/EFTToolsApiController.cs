@@ -1,28 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
+using TarkovDevData.Services.Interfaces;
 
 namespace EFTToolsAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class EFTToolsApiController : ControllerBase
+public class EftToolsApiController : ControllerBase
 {
 
-    private readonly ILogger<EFTToolsApiController> _logger;
+    private readonly ILogger<EftToolsApiController> _logger;
+    private readonly ITarkovDevDataService _tarkovDevDataService;
 
-    public EFTToolsApiController(ILogger<EFTToolsApiController> logger)
+    public EftToolsApiController(ILogger<EftToolsApiController> logger, ITarkovDevDataService tarkovDevDataService)
     {
         _logger = logger;
+        _tarkovDevDataService = tarkovDevDataService;
     }
 
-    // [HttpGet]
-    // public IEnumerable<WeatherForecast> Get()
-    // {
-    //     return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-    //         {
-    //             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-    //             TemperatureC = Random.Shared.Next(-20, 55),
-    //             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-    //         })
-    //         .ToArray();
-    // }
+    [HttpGet]
+    public async Task<IActionResult> Get(CancellationToken ct)
+    {
+        var items = await _tarkovDevDataService.GetAllItems(ct);
+        _logger.LogInformation("Retrieving all items.");
+        return Ok(items);
+    }
 }
