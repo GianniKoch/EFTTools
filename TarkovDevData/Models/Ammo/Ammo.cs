@@ -1,11 +1,10 @@
 using System.Text.Json.Serialization;
-using NodaTime;
 
 namespace TarkovDevData.Models.Ammo;
 
 public class Ammo {
   [JsonPropertyName("item")]
-  public Item Item { get; set; }
+  public Item.Item Item { get; set; }
 
   [JsonPropertyName("weight")]
   public float Weight { get; set; }

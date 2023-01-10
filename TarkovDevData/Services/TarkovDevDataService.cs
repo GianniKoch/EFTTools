@@ -2,6 +2,7 @@
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using TarkovDevData.Models;
+using TarkovDevData.Models.Ammo;
 using TarkovDevData.Models.Item;
 using TarkovDevData.Services.Interfaces;
 
@@ -43,6 +44,12 @@ public class TarkovDevDataService : ITarkovDevDataService
     public async Task<List<Item>?> GetAllItems(CancellationToken ct)
     {
         var result = await GetAsync<DataWrapper>(Constants.GetItemsQuery, ct);
-        return result == null ? Enumerable.Empty<Item>().ToList() : result.data.Items;
+        return result == null ? Enumerable.Empty<Item>().ToList() : result.Data.Items;
+    }
+
+    public async Task<List<Ammo>?> GetAmmo(CancellationToken ct)
+    {
+        var result = await GetAsync<DataWrapper>(Constants.GetAmmoQuery, ct);
+        return result == null ? Enumerable.Empty<Ammo>().ToList() : result.Data.Ammo;
     }
 }
