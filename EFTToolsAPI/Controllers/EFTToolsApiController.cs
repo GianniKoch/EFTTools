@@ -17,10 +17,18 @@ public class EftToolsApiController : ControllerBase
         _tarkovDevDataService = tarkovDevDataService;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Get(CancellationToken ct)
+    [HttpGet("Items")]
+    public async Task<IActionResult> GetItems(CancellationToken ct)
     {
         var items = await _tarkovDevDataService.GetAllItems(ct);
+        _logger.LogInformation("Retrieving all items.");
+        return Ok(items);
+    }
+
+    [HttpGet("Ammo")]
+    public async Task<IActionResult> GetAmmo(CancellationToken ct)
+    {
+        var items = await _tarkovDevDataService.GetAmmo(ct);
         _logger.LogInformation("Retrieving all items.");
         return Ok(items);
     }
